@@ -1,0 +1,155 @@
+use rem (relative size to root element i.e font size of root element)
+
+(1) What is CSS Grid?
+
+	CSS grid layout or CSS grid is a technique in Cascading Style Sheets that allows web developers to create complex responsive web design layouts more easily and consistently across browsers. There have been other methods for controlling web page layout methods, such as tables, the box model, and CSS flex box. CSS grid is currently not an official standard (it is a W3C Candidate Recommendation) although it has been adopted by most major browsers.
+
+(2) Why should you use it?
+
+	It gives you 2-dimensional control unlike flexbox which only give 1-dimensional control (column OR row)
+	It is supported by majority of browsers including:
+		Google Chrome
+		Microsoft Edge
+		Firefox
+		Opera
+		Safari
+		and more ...
+	It is quite easy to learn, write, read and modify in future.
+	It makes making responsive website a smooth experience by properties like grid-template-areas etc.
+
+(3) Define grid
+
+	A grid layout will have a parent container that will contain one or more child elements in it.
+	To define a grid set:
+		photo	display: grid;
+
+(4) Columns and Rows
+
+	Grid contain column(s) and row(s).
+	Columns & rows can be defined as:
+		photo	grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr;
+		photo	grid-template-columns: repeat(3, 1fr);	// same effect as above
+		photo	grid-template-rows: 10% 50% auto;
+
+(5) Column gap and Row gap
+
+	The distance between columns is the column gap and the distance between rows is the row gap for that gird.
+	Column gap can be defined as:
+		photo	grid-column-gap: 1fr(try this)
+		photo	grid-column-gap: 30px;
+	Row gap can be defined as:
+		photo	grid-row-gap: 1fr(try this)
+		photo	grid-row-gap: 30px;
+
+	Grid column gap and grid row gap can be defined in one propertie as:
+		photo	grid-gap: 10px 20px;
+		photo	grid-gap: 15px;
+
+(6) Justify content and Align content
+	The justify-content property is used to align the whole grid on the inline axis inside the grid container.
+	The align-content property is used to vertically align the whole grid inside the grid container.
+
+	Justify content can be defined as:
+		photo	justify-content: start;
+		photo	justify-content: end;
+		photo	justify-content: center;
+		photo	justify-content: stretch;
+		photo	justify-content: space-around;
+		photo	justify-content: space-between;
+		photo	justify-content: space-evenly;
+
+	Align content can be defined as:
+		photo	align-content: start;
+		photo	align-content: end;
+		photo	align-content: center;
+		photo	align-content: stretch;
+		photo	align-content: space-around;
+		photo	align-content: space-between;
+		photo	align-content: space-evenly;
+
+
+(7) Justify item and justify self
+	justify-items and justify-self controls alignment on the inline axis
+	Justify items can be defined as:
+		photo	justify-items: start;
+		photo	justify-items: end;
+		photo	justify-items: center;
+		photo	justify-items: stretch;
+	Justify self can be defined as:
+		NOTE: do this for only one specific child element to emphasise the "self" part
+		photo	justify-self: start;
+		photo	justify-self: end;
+		photo	justify-self: center;
+		photo	justify-self: stretch;
+
+(8) Align item and Align self
+	align-items and align-self controls alignment on the block axis
+	Align items can be defined as:
+		photo	align-items: start;
+		photo	align-items: end;
+		photo	align-items: center;
+		photo	align-items: stretch;
+	Align self can be defined as:
+		NOTE: do this for only one specific child element to emphasise the "self" part
+		photo	align-self: start;
+		photo	align-self: end;
+		photo	align-self: center;
+		photo	align-self: stretch;
+
+(9) Grid area and grid template areas
+	A grid area is one or more grid cells that make up a rectangular area on the grid.
+	The grid-template-areas CSS property specifies named grid areas.
+	Grid template areas are defined as:
+		grid-template-areas: 
+	            "header header header"
+	            "sidebar main main"
+	            "footer footer footer";
+
+	Grid template areas can be used by child elements using grid area property.
+	Grid area is defined as:
+		photo	grid-area: header;
+				grid-area: sidebar;
+				grid-area: main;
+				grid-area: footer;
+
+(10) Grid Lines
+
+	Grid lines can also be used to mimic the same results.
+	The lines between columns are called column lines.
+	The lines between rows are called row lines.
+
+	photo(use w3 school grid lines image)
+
+	Using grid line number to provide elements desired space in grid
+	Column(s) can be selected as:
+		photo	grid-column-start: 1;
+				grid-column-end: 3;
+		photo	grid-column-start: 2;
+				grid-column-end: 4;
+		photo	grid-column: 2 / 3;
+		photo	grid-column: 2 / span 2;
+	Row(s) can be selected as:
+		photo	grid-row-start: 1;
+				grid-row-end: 3;
+		photo	grid-row-start: 2;
+				grid-row-end: 4;
+		photo	grid-row: 1 / 3;
+		photo	grid-row: 1 / span 2;
+
+	Row(s) and Column(s) can be selected together to form a rectangular area.
+	It is done as:
+		photo	grid-row: 1 / 3;
+				grid-column: 1 / 3;
+		photo	grid-row: 2 / 4;
+				grid-column: 2 / 4;
+		photo	grid-area: 1 / 2 / 5 / 6;	(change row/column values)
+						(row-start/ column-start/ row-end/ column-end)
+
+(11) Grid auto flow
+	The grid-auto-flow CSS property controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.
+	Grid auto flow can be defined as:
+		NOTE: to show this property use less (maybe 4) elements
+		photo	grid-auto-flow: row;
+		photo	grid-auto-flow: column;
+		photo	grid-auto-flow: dense;

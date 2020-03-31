@@ -1,0 +1,874 @@
+/* some refactoring of css need to be done -> deleting comments (unnecessary)*/
+/* colors used 
+	background #121212
+	primary #FFCE26
+ */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #555;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(216, 169, 16);
+	background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgb(216, 169, 16) 100%);
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #ffce26;
+	background: linear-gradient(
+		rgba(204, 157, 1, 0) 0%,
+		rgba(204, 157, 1, 0.623) 10%,
+		rgb(194, 150, 5) 100%
+	);
+}
+
+body {
+	background-color: #121212;
+	color: #ddd;
+	font-family: "Roboto", sans-serif;
+	position: relative;
+}
+
+h2 {
+	font-size: 50px;
+	text-align: center;
+	padding: 30px;
+}
+
+a {
+	text-decoration: none;
+	color: #aaa;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: white;
+}
+
+nav {
+	position: fixed;
+	display: block;
+	z-index: 2;
+	top: 0;
+	width: 100%;
+	background-color: #121212;
+	height: 80px;
+	/* overflow: hidden; */
+	border-bottom: 2px solid gray;
+}
+
+nav a img {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	padding-left: 10px;
+	height: calc(100% - 10px);
+}
+
+nav ul {
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	padding-right: 10px;
+	list-style: none;
+	transform: translateY(-50%);
+}
+nav i{
+	display: none;
+	visibility: hidden;
+}
+
+nav ul li {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px 20px;
+	font-size: 17px;
+	font-family: monospace;
+}
+
+/* nav ul li:hover {
+    background-color: #111;
+    border-radius: 5px;
+} */
+
+nav ul li ul {
+	display: none;
+	position: absolute;
+	top: 122px;
+	background: #000;
+	border: 1px solid gray;
+	/* border-top: none; */
+	border-radius: 5px;
+	padding-right: 0;
+}
+
+nav ul li ul li {
+	width: 100%;
+	text-align: center;
+}
+
+/* nav ul li ul li:hover {
+    background-color: #111;
+} */
+
+nav ul li:hover > ul,
+ul li:focus-within > ul,
+ul li ul:hover,
+ul li ul:focus {
+	display: block;
+	position: absolute;
+	transition: all 0.5s ease;
+}
+
+header,
+#testimony {
+	position: relative;
+	padding-top: 80px;
+	color: #eee;
+	min-height: 100vh;
+	/* width: 100%; */
+}
+
+header h1 {
+	padding-top: 250px;
+	padding-left: 10%;
+	font-size: 70px;
+}
+
+header p {
+	width: 50%;
+	margin-left: 10%;
+	padding: 20px 0;
+	font-size: 20px;
+}
+
+header .container,
+#testimony .container {
+	width: 100%;
+	position: absolute;
+	top: 80px;
+	left: 0;
+	height: calc(100vh - 80px);
+}
+
+header .carousel,
+#testimony .carousel {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	border-radius: 5px;
+	/* background: rgb(0, 0, 0);
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1); */
+	z-index: -1;
+}
+
+header .slider,
+#testimony .slider {
+	display: flex;
+	height: 100%;
+	width: 400%;
+	transition: 1s;
+}
+
+header .slider section,
+#testimony .slider section {
+	flex-basis: 100%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	font-size: 20px;
+}
+header .slider section img,
+#testimony .slider section img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+header .slider section img {
+	opacity: 0.6;
+}
+
+header .left,
+header .right,
+#testimony .left,
+#testimony .right {
+	position: absolute;
+	bottom: 0;
+	cursor: pointer;
+}
+
+header .arrow i,
+#testimony .arrow i {
+	font-size: 40px;
+	-webkit-user-select: none;
+	color: #fff;
+}
+
+header .left,
+#testimony .left {
+	left: 43%;
+}
+
+header .right,
+#testimony .right {
+	right: 43%;
+}
+
+header .control ul,
+#testimony .control ul {
+	list-style: none;
+	display: flex;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin: 0;
+	padding: 0;
+	transform: translate(-50%);
+}
+
+header .control ul li,
+#testimony .control ul li {
+	width: 10px;
+	height: 10px;
+	background: #fff;
+	border: 2px solid #fff;
+	border-radius: 50px;
+	margin: 15px 10px;
+	cursor: pointer;
+}
+
+header .control ul li.selected,
+#testimony .control ul li.selected {
+	background: transparent;
+}
+
+#about {
+	position: relative;
+	padding-top: 80px;
+	/* min-height: 100vh; */
+	display: flex;
+	justify-content: space-around;
+}
+
+#about div {
+	position: relative;
+	width: 45%;
+	/* height: 100%; */
+	/* min-height: 100vh; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#about div img {
+	width: 100%;
+	border-radius: 5px;
+	/* max-height: 100%;  
+    max-width: 100%; 
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto; */
+}
+
+#about div:nth-child(2) {
+	flex-direction: column;
+}
+
+#about h2,
+#about p {
+	width: 80%;
+}
+
+#about h2 {
+	/* width: 100%; */
+	padding: 10px 20px;
+	/* font-size: 50px; */
+	/* font-size of h2 was set globally at top of css document */
+}
+
+#about p {
+	font-size: 25px;
+	padding: 10px 20px;
+	text-align: justify;
+}
+
+#product {
+	position: relative;
+	padding-top: 80px;
+	min-height: 100vh;
+	width: 100%;
+}
+
+#product h2 {
+	text-align: center;
+}
+
+#product .imgs {
+	margin-top: 35px;
+	width: 100%;
+	display: flex;
+}
+
+#product .imgs div {
+	position: relative;
+	/* deleting width of scrollbar form from div width (so 33.33%*3 + 3.33px*3 = 99.99% screen) */
+	width: calc(33.33%-3.33px);
+	z-index: 1;
+}
+
+#product .imgs div img {
+	width: 99.5%;
+	margin: auto;
+	transition: 0.3s;
+}
+
+#product .imgs div h3,
+#product .imgs div p {
+	position: absolute;
+}
+
+#product .imgs div h3 {
+	text-align: center;
+	width: 100%;
+	font-size: 30px;
+	top: 50%;
+	opacity: 0;
+	transition: 0.5s;
+}
+
+#product .imgs div p {
+	top: 60%;
+	left: 0;
+	right: 0;
+	padding: 10px 50px;
+	text-align: justify;
+	opacity: 0;
+	transition: 0.5s;
+	/* background-color: #000; */
+}
+
+#product .imgs div::before {
+	content: "";
+	position: absolute;
+	top: 20%;
+	bottom: 0;
+	width: 100%;
+	opacity: 0;
+	transition: 0.5s ease;
+}
+
+#product .imgs div:hover::before {
+	opacity: 1;
+	z-index: 9;
+	background: rgb(0, 0, 0);
+	background: linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(0, 0, 0, 0.7) 50%,
+		rgba(0, 0, 0, 0.5) 75%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	transform: scale(1.01);
+}
+
+#product .imgs div:hover > img {
+	transform: scale(1.01);
+	border-radius: 5px;
+}
+
+#product .imgs div:hover > h3 {
+	opacity: 1;
+	z-index: 10;
+}
+
+#product .imgs div:hover > p {
+	opacity: 1;
+	z-index: 10;
+}
+
+#product .products {
+	width: 100%;
+	overflow-x: scroll;
+	display: flex;
+	transform: rotate(180deg);
+	margin: 20px 0;
+}
+
+#product .products img {
+	transform: rotate(180deg);
+	width: 500px;
+	height: auto;
+	padding: 5px 10px;
+}
+
+#product .products::-webkit-scrollbar-thumb {
+	background: rgb(216, 169, 16);
+	border-radius: 0;
+}
+
+/* width */
+#product .products::-webkit-scrollbar {
+	height: 10px;
+}
+
+/* Handle */
+#product .products::-webkit-scrollbar-thumb {
+	background: linear-gradient(
+		-90deg,
+		rgba(0, 0, 0, 0.1) 0%,
+		rgb(216, 169, 16) 100%
+	);
+}
+
+/* Handle on hover */
+#product .products::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(
+		-90deg,
+		rgba(204, 157, 1, 0) 0%,
+		rgba(204, 157, 1, 0.623) 10%,
+		rgb(194, 150, 5) 100%
+	);
+}
+
+#services {
+	margin-top: 80px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: "heading heading heading";
+}
+
+#services div {
+	padding: 0 10%;
+}
+
+#services h2 {
+	text-align: center;
+	padding-bottom: 40px;
+	grid-area: heading;
+}
+
+#services div i {
+	color: #ccc;
+	text-align: center;
+	display: block;
+	font-size: 80px;
+	transition: 0.3s;
+	padding: 20px;
+}
+
+#services div:hover > i {
+	scale: 1.1;
+	padding: 12px;
+}
+
+#services div h3 {
+	text-align: center;
+	font-size: 30px;
+	padding: 20px;
+}
+
+#services div p {
+	text-align: justify;
+}
+
+#services div:hover > i,
+#services div:hover > h3,
+#services div:hover > p {
+	color: #fff;
+}
+
+#testimony {
+	width: 100%;
+}
+
+#testimony .container {
+	min-height: 100vh;
+}
+
+#testimony .slider {
+	display: flex;
+	height: 100%;
+	width: 500%;
+	transition: 1s;
+}
+
+#testimony .container .carousel .slider section {
+	/* display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column; */
+	text-align: center;
+	display: block;
+	position: relative;
+}
+
+#testimony .container .carousel .slider section img {
+	display: block;
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 20%;
+}
+
+#testimony .container .carousel .slider section p {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 70%;
+	width: 80%;
+}
+
+footer {
+	margin-top: 120px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr auto;
+	grid-template-areas:
+		"address links map"
+		"bottom bottom bottom";
+}
+
+footer div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+footer p {
+	text-align: center;
+}
+
+footer #address {
+	grid-area: address;
+}
+
+footer #links {
+	grid-area: links;
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-areas:
+		"h2 h2"
+		"icon name"
+		"icon name"
+		"icon name"
+		"icon name";
+}
+
+footer #links h2 {
+	grid-area: h2;
+}
+
+footer #links a:nth-child(odd) {
+	grid-area: "icon";
+	text-align: left;
+	color: #fff;
+}
+footer #links a:nth-child(even) {
+	grid-area: "name";
+	text-align: right;
+	padding-right: 20px;
+	color: #fff;
+}
+
+footer #map {
+	grid-area: map;
+}
+footer #map button {
+	text-align: center;
+	padding: 10px 100px;
+	border-radius: 5px;
+	border: none;
+	background-color: #232323;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+	color: #ffce26;
+	margin: 40px 0 10px 0;
+	font-size: 20px;
+}
+
+footer #map button:hover {
+	background-color: #000;
+}
+
+footer #map img {
+	width: 300px;
+}
+
+footer #bottom {
+	display: block;
+	grid-area: bottom;
+	text-align: end;
+}
+
+footer #bottom span {
+	padding: 20px 30px 20px 0;
+}
+
+footer #bottom span a {
+	color: #ddd;
+}
+
+@media only screen and (max-width: 1280px) {
+	header h1 {
+		font-size: 40px;
+		padding: 40px;
+	}
+	header p {
+		margin: 0 auto 10px 40px;
+		padding: 0;
+		width: 80%;
+		font-size: 30px;
+	}
+
+	header .left,
+	#testimony .left {
+		left: 40%;
+	}
+
+	header .right,
+	#testimony .right {
+		right: 40%;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	p {
+		font-size: 20px;
+	}
+
+	header .left,
+	#testimony .left {
+		left: 35%;
+	}
+
+	header .right,
+	#testimony .right {
+		right: 35%;
+	}
+
+	#product .products img {
+		width: 45%;
+		padding-bottom: 0;
+	}
+
+	#testimony .container .carousel .slider section img {
+		width: 150px;
+		height: 150px;
+		top: 25%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	p {
+		font-size: 20px !important;
+	}
+	h2 {
+		font-size: 35px;
+	}
+
+	header h1 {
+		font-size: 40px;
+		padding: 40px;
+	}
+	header p {
+		margin: 0 auto 10px 40px;
+		padding: 0;
+		width: 80%;
+		font-size: 30px;
+	}
+
+	#about p {
+		padding: 10px 0;
+	}
+
+	#testimony .container .carousel .slider section p {
+		top: 60%;
+	}
+
+	footer #map button {
+		padding: 10px 40px;
+	}
+
+	footer #map img {
+		width: 180px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	* {
+		box-sizing: border-box;
+	}
+	p {
+		font-size: 20px;
+		text-align: justify;
+	}
+
+	h2 {
+		font-size: 35px;
+	}
+	
+	nav ul{
+		display: none;
+		top: 160px;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.9);
+	}
+	nav ul li {
+		display: block;
+		padding: 10px 0;
+		text-align: center;
+	}
+	
+	
+	nav ul li ul{
+		z-index: 1;
+	}
+	
+	
+	nav i{
+		visibility: visible;
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding: 20px;
+		font-size: 35px;
+	}
+	
+
+	header h1 {
+		font-size: 40px;
+		padding: 40px;
+	}
+	header p {
+		margin: 0 auto 10px 40px;
+		padding: 0;
+		width: 80%;
+		font-size: 30px;
+	}
+	.container {
+		height: 100%;
+	}
+
+	header .left {
+		left: 150px;
+	}
+	#testimony .left {
+		left: 120px;
+	}
+
+	header .right {
+		right: 150px;
+	}
+	#testimony .right {
+		right: 120px;
+	}
+
+	#about {
+		flex-direction: column;
+	}
+
+	#about div {
+		width: 90%;
+		margin: auto;
+	}
+	#about p {
+		width: 100%;
+		padding-bottom: 0;
+	}
+
+	#product .imgs {
+		flex-direction: column;
+		width: 90%;
+		margin: auto;
+	}
+
+	#products .imgs div {
+		width: 100%;
+	}
+
+	#product .imgs div::before {
+		top: 20%;
+		bottom: 0;
+		width: 100%;
+		opacity: 0;
+		transition: 0.5s ease;
+	}
+
+	#product .products img {
+		width: 45%;
+		padding-bottom: 0;
+	}
+	#services {
+		grid-template-columns: 1fr;
+		grid-template-areas: "heading";
+	}
+	#services div {
+		padding: 5% 10%;
+	}
+
+	#services div i {
+		padding-bottom: 0;
+	}
+
+	#testimony .container {
+		height: 100vh;
+	}
+
+	#testimony .container .carousel .slider section img {
+		width: 150px;
+		height: 150px;
+		top: 25%;
+	}
+
+	#testimony .container .carousel .slider section p {
+		top: 60%;
+		width: 90%;
+		font-size: 17px;
+	}
+
+	footer {
+		margin-top: 100px;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"address"
+			"links"
+			"map"
+			"bottom";
+	}
+	footer #map button {
+		padding: 10px 120px;
+	}
+
+	footer #map img {
+		width: 80%;
+	}
+}

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+		<nav id="navbar">
+			<header>CSS Grid</header><hr>
+			<a href="#What_is_CSS_Grid?" class="nav-link">What is CSS Grid?</a><hr>
+			<a href="#Why_should_you_use_it?" class="nav-link">Why should you use it?</a><hr>
+			<a href="#Define_grid" class="nav-link">Define grid</a><hr>
+			<a href="#Columns_and_Rows" class="nav-link">Columns and Rows</a><hr>
+			<a href="#Column_gap_and_Row_gap" class="nav-link">Column gap and Row gap</a><hr>
+			<a href="#Justify_content_and_Align_content" class="nav-link">Justify content and Align content</a><hr>
+			<a href="#Justify_item_and_justify_self" class="nav-link">Justify item and justify self</a><hr>
+			<a href="#Align_item_and_Align_self" class="nav-link">Align item and Align self</a><hr>
+			<a href="#Grid_area_and_grid_template_areas" class="nav-link">Grid area and grid template areas</a><hr>
+			<a href="#Grid_Lines" class="nav-link">Grid Lines</a><hr>
+			<a href="#Grid_auto_flow" class="nav-link">Grid auto flow</a><hr>
+		</nav>
+
+
+		<main id="main-doc">
+			<section class="main-section" id="What_is_CSS_Grid?">
+				<header>What is CSS Grid?</header>
+				<p>
+					CSS grid layout or CSS grid is a technique in Cascading
+					Style Sheets that allows web developers to create complex
+					responsive web design layouts more easily and consistently
+					across browsers. There have been other methods for
+					controlling web page layout methods, such as tables, the box
+					model, and CSS flex box. CSS grid is currently not an
+					official standard (it is a W3C Candidate Recommendation)
+					although it has been adopted by most major browsers.
+				</p>
+			</section>
+
+			<section class="main-section" id="Why_should_you_use_it?">
+				<header>Why should you use it?</header>
+				<ul>
+					<li>
+						It gives you 2-dimensional control unlike flexbox which
+						only give 1-dimensional control (column OR row)
+					</li>
+					<li>
+						It is supported by majority of browsers including:
+						<ul>
+							<li>Google Chrome</li>
+							<li>Microsoft Edge</li>
+							<li>Firefox</li>
+							<li>Opera</li>
+							<li>Safari</li>
+						</ul>
+					</li>
+					<li>
+						It is quite easy to learn, write, read and modify in
+						future.
+					</li>
+					<li>
+						It makes making responsive website a smooth experience
+						by properties like grid-template-areas etc.
+					</li>
+				</ul>
+			</section>
+
+			<section class="main-section" id="Define_grid">
+				<header>Define grid</header>
+				<p>
+					A grid layout will have a parent container that will contain
+					one or more child elements in it.
+				</p>
+				<p>To define a grid set:</p>
+				<div class="demonstration">
+					<div class="grid">
+						<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+					</div>
+					<code>display: grid;</code>
+				</div>
+			</section>
+
+			<section class="main-section" id="Columns_and_Rows">
+				<header>Columns and Rows</header>
+				<p>Grid contain column(s) and row(s).</p>
+				<p>Columns & rows can be defined as:</p>
+				<div class="demonstration">
+					<div class="grid">
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+					</div>
+					<code>grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+						<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+					</div>
+
+					<code>grid-template-columns: repeat(3, 1fr);
+// same effect as above</code
+					>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-template-rows: 10% 50% 1fr;</code>
+				</div>
+			</section>
+
+			<!-- <div class="demonstration">
+				<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+				<code></.e>
+			</div> -->
+
+			<section class="main-section" id="Column_gap_and_Row_gap">
+				<header>Column gap and Row gap</header>
+				<p>
+					The distance between columns is the column gap and the
+					distance between rows is the row gap for that gird.
+				</p>
+				<p>Column gap can be defined as:</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-column-gap: 10px;</code>
+				</div>
+				<p>Row gap can be defined as:</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-row-gap: 10px;</code>
+				</div>
+				<p>
+					Grid column gap and grid row gap can be defined in one
+					propertie as:
+				</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-gap: 4px 13px;
+	(row, column)</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-gap: 10px;</code>
+				</div>
+			</section>
+
+			<section
+				class="main-section"
+				id="Justify_content_and_Align_content"
+			>
+				<header>Justify content and Align content</header>
+				<p>
+					The justify-content property is used to align the whole grid
+					on the inline axis inside the grid container.
+				</p>
+				<p>
+					The align-content property is used to vertically align the
+					whole grid inside the grid container.
+				</p>
+				<br />
+				<p>
+					Justify content can be defined as:
+				</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-content: start;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-content: end;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-content: center;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-content: stretch;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-content: space-around;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-content: space-between;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-content: space-evenly;</code>
+				</div>
+				<p>
+					Align content can be defined as:
+				</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-content: start;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-content: end;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-content: center;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-content: stretch;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-content: space-around;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-content: space-between;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-content: space-evenly;</code>
+				</div>
+			</section>
+
+			<section class="main-section" id="Justify_item_and_justify_self">
+				<header>Justify item and justify self</header>
+				<p>
+					justify-items and justify-self controls alignment on the
+					inline axis
+				</p>
+				<p>Justify items can be defined as:</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-items: start;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-items: end;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-items: center;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-items: stretch;</code>
+				</div>
+				<p>Justify self can be defined as:</p>
+				<!-- ! NOTE: do this for only one specific child element to emphasise the "self" part -->
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-self: start;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-self: end;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-self: center;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>justify-self: stretch;</code>
+				</div>
+			</section>
+
+			<section class="main-section" id="Align_item_and_Align_self">
+				<header>Align item and Align self</header>
+				<p>
+					align-items and align-self controls alignment on the block
+					axis.
+				</p>
+				<p>Align items can be defined as:</p>
+				<div class="demonstration">
+					<div class="grid">
+						<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-items: start;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-items: end;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-items: center;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-items: stretch;</code>
+				</div>
+				<p>Align self can be defined as:</p>
+				<!-- ! NOTE: do this for only one specific child element to emphasise the "self" part -->
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-self: start;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-self: end;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-self: center;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>align-self: stretch;</code>
+				</div>
+			</section>
+
+			<section
+				class="main-section"
+				id="Grid_area_and_grid_template_areas"
+			>
+				<header>Grid area and grid template areas</header>
+				<p>
+					A grid area is one or more grid cells that make up a
+					rectangular area on the grid.
+				</p>
+				<p>
+					The grid-template-areas CSS property specifies named grid
+					areas.
+				</p>
+				<p>
+					Grid template areas can be used by child elements using grid
+					area property.
+				</p>
+				<p>Grid template areas are defined as:</p>
+				<p>&</p>
+				<p>Grid areas are used by child elements as:</p>
+				<div class="demonstration">
+					<!-- <div class="grid">
+						no grid here - delete this portion maintaining
+						formatting
+					</div> -->
+					<div class="grid">
+						<span class="grid-child">header</span>
+						<span class="grid-child">side</span>
+						<span class="grid-child">main</span>
+						<span class="grid-child">footer</span></div>
+					<code>grid-template-areas: 
+		"header header header"
+		"side main main"
+		"footer footer footer";</code
+					>
+					<code>grid-area: header;
+grid-area: sidebar;
+grid-area: main;
+grid-area: footer;</code>
+				</div>
+				<br />
+				<p>Grid also helps creating responsive design easily.</p>
+				<p>Ex - For mobile layout we only have to change the grid-template-areas as:</p>
+				<div class="demonstration">
+					<!-- <div class="grid">one photo for four code lines</div> -->
+					<div class="grid">
+						<span class="grid-child">header</span>
+						<span class="grid-child">side</span>
+						<span class="grid-child">main</span>
+						<span class="grid-child">footer</span></div>
+						<code>grid-template-areas: 
+		"header"
+		"side main"
+		"footer";</code>
+				</div>
+			</section>
+
+			<section class="main-section" id="Grid_Lines">
+				<header>Grid Lines</header>
+				<p>Grid lines can also be used to mimic the same results.</p>
+				<p>The lines between columns are called column lines.</p>
+				<p>The lines between rows are called row lines.</p>
+				<br />
+				<a href="https://www.w3schools.com/css/css_grid.asp">
+				<img
+					src="https://github.com/anmolagarwal17/images/blob/master/technical%20documentation%20page%20-%20freecodecamp/grid_lines.png?raw=true"
+					alt="
+				grid lines visulization"
+				/></a>
+				<br />
+				<p>
+					Using grid line number to provide elements desired space in
+					grid
+				</p>
+				<p>Column(s) can be selected as:</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-column-start: 1;
+grid-column-end: 3;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-column-start: 2;
+grid-column-end: 4;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-column: 2 / 3;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-column: 2 / span 2;</code>
+				</div>
+				<p>Row(s) can be selected as:</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-row-start: 1;
+grid-row-end: 3;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-row-start: 2;
+grid-row-end: 4;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-row: 1 / 3;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-row: 1 / span 2;</code>
+				</div>
+				<p>
+					Row(s) and Column(s) can be selected together to form a
+					rectangular area.
+				</p>
+				<p>It is done as:</p>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-row: 1 / 3;
+grid-column: 1 / 3;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-row: 2 / 4;
+grid-column: 2 / 4;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-area: 1 / 2 / 4 / 4;
+(row-start/ column-start/ row-end/ column-end)</code
+					>
+				</div>
+			</section>
+
+			<section class="main-section" id="Grid_auto_flow">
+				<header>Grid auto flow</header>
+				<p>
+					The grid-auto-flow CSS property controls how the
+					auto-placement algorithm works, specifying exactly how
+					auto-placed items get flowed into the grid.
+				</p>
+				<p>Grid auto flow can be defined as:</p>
+				<!-- ! 		NOTE: to show this property use less (maybe 4) elements -->
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-auto-flow: row;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-auto-flow: column;</code>
+				</div>
+				<div class="demonstration">
+					<div class="grid">
+<span class="grid-child"> </span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span>
+						<span class="grid-child"></span></div>
+					<code>grid-auto-flow: dense;</code>
+				</div>
+			</section>
+		</main>
+
+		<!-- * main element with id="main-doc" which contains page's main content - technical documentation -->
+		<!-- * in #main-doc, add several section elements with class="main-section" (minimum 5) -->
+		<!-- * first element in each .main-section should be header element -->
+		<!-- * each .main-section should also have a id for that section corresponding to it's header (e.g. The section that contains the header "JavaScript and Java" should have a corresponding id="JavaScript_and_Java")-->
+		<!-- * .main-section elements should contain at lease 10 p elements (total not each) -->
+		<!-- * .main-section should contain at least 5 code elements total -->
+		<!-- * .main-section should contain at least 5 li items total -->
+		<!-- * add a nav element with a corresponding id="navbar" -->
+		<!-- * #navbar element should contain one header element which contains text that describes the topic of the technical documentation -->
+		<!-- * #navbar should contain link (a) elements with the class of .nav-link, one for every element with the class .main-section -->
+		<!-- * header element in #navbar must come before any link (a) elements in the #navbar -->
+		<!-- * each .nav-link element should contain text same as header text within each section -->
+		<!-- * on clicking navbar element, navigation should be carried out -->
+		<!-- ! on regular sized devices (laptops, desktops), element with id="navbar" should be shown on the left side of the screen and should always be visible to the user -->
+		<!-- ! add at least one media query -->
+		<!-- ! https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js -->
+	</body>
+</html>

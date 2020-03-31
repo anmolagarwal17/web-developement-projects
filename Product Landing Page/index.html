@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+		<header id="header">
+			<img id="header-img" src="https://github.com/anmolagarwal17/images/blob/master/product%20landing%20page%20-%20freecodecamp/23656.png?raw=true" alt="apple logo" />
+			<nav id="nav-bar">
+				<ul>
+					<li><a href="#specs" class="nav-link">Specs</a></li>
+					<li><a href="#video-sec" class="nav-link">Video</a></li>
+					<li><a href="#buy" class="nav-link">Buy</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div id="specs">
+			<div id="image">
+				<img src="https://github.com/anmolagarwal17/images/blob/master/product%20landing%20page%20-%20freecodecamp/og__smc3haxsdn2q_overview.png?raw=true" alt="iphone photo" />
+			</div>
+			<div id="features">
+				<h1>iPhone 11 Pro</h1>
+				<ul>
+					<li>6.5-inch Super Retina XDR OLED display</li>
+					<li>
+						Water and dust resistant (4 meters for up to 30 minutes,
+						IP68)
+					</li>
+					<li>
+						Triple-camera system with 12MP Ultra Wide, Wide, and
+						Telephoto cameras; Night mode, Portrait mode, and 4K
+						video up to 60fps
+					</li>
+					<li>
+						12MP TrueDepth front camera with Portrait Mode, 4K
+						video, and Slo-Mo
+					</li>
+					<li>Face ID for secure authentication and Apple Pay</li>
+					<li>A13 Bionic chip with third-generation Neural Engine</li>
+					<li>Fast charge with 18W adapter included</li>
+					<li>Wireless charging</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="video-sec">
+			<h2>Product Video</h2>
+			<div class="iframe-container">
+				<iframe
+				id="video"
+					width="560"
+					height="315"
+					src="https://www.youtube.com/embed/cVEemOmHw9Y"
+					frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			</div>
+		</div>
+
+		<form action="https://www.freecodecamp.com/email-submit" id="form">
+			<label for="submit">
+				<input
+					type="email"
+					id="email"
+					placeholder="Enter your email address"
+					name="email"
+					required
+				/>
+			</label>
+			<br />
+			<input id="submit" type="submit" value="submit" />
+		</form>
+
+		<div id="buy">
+			<a
+				href="https://www.apple.com/shop/buy-iphone/iphone-11-pro/6.5-inch-display-256gb-space-gray-unlocked"
+				>Buy</a
+			>
+		</div>
+
+		<!-- * add a header element with id "header" -->
+		<!-- * add image in header element with id "header-img" (company logo) -->
+		<!-- * inside header, add a nav bar with id "nav-bar" -->
+		<!-- * three clickable elements in "nav-bar" with class "nav-link" -->
+		<!-- ! navigate using those "nav-link" clickable links -->
+		<!-- * embed a video of product with id="video" -->
+		<!-- * add a from with id="form" -->
+		<!-- * add a input field in form with id="submit" -->
+		<!-- * on clicking submit, submit email to url(https://www.freecodecamp.com/email-submit)  that confirms the email address was entered and that it posted successfully -->
+		<!-- * The navbar should always be at the top of the viewport -->
+		<!-- ! My product landing page should have at least one media query -->
+		<!-- ! My product landing page should utilize CSS flexbox at least once -->
+		<!-- ! https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js -->
+	</body>
+</html>
