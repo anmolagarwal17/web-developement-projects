@@ -93,7 +93,8 @@ nav ul {
 	list-style: none;
 	transform: translateY(-50%);
 }
-nav i{
+
+nav i {
 	display: none;
 	visibility: hidden;
 }
@@ -199,12 +200,14 @@ header .slider section,
 	display: flex;
 	font-size: 20px;
 }
+
 header .slider section img,
 #testimony .slider section img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
+
 header .slider section img {
 	opacity: 0.6;
 }
@@ -547,92 +550,96 @@ header .control ul li.selected,
 
 footer {
 	margin-top: 120px;
+	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr auto;
+	grid-template-rows: auto auto auto;
 	grid-template-areas:
-		"address links map"
+		"addhead linkhead maphead"
+		"addcont linkcont mapcont"
 		"bottom bottom bottom";
 }
 
-footer div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+footer h2,
+footer p,
+footer a,
+footer img{
+	margin: auto;
 }
 
-footer p {
+footer h2.address {
+	grid-area: addhead;
+}
+footer p.address {
+	grid-area: addcont;
+}
+footer h2.links {
+	grid-area: linkhead;
+}
+footer div.links{
+	grid-area: linkcont;
+}
+footer a.map {
+	grid-area: maphead;
+}
+footer img.map{
+	grid-area: mapcont;
+}
+footer a.links,
+footer p.address{
+	display: block;
 	text-align: center;
+	padding: 15px;
+	margin-top: 0;
 }
 
-footer #address {
-	grid-area: address;
-}
 
-footer #links {
-	grid-area: links;
-	display: grid;
-	grid-template-columns: auto auto;
-	grid-template-areas:
-		"h2 h2"
-		"icon name"
-		"icon name"
-		"icon name"
-		"icon name";
-}
-
-footer #links h2 {
-	grid-area: h2;
-}
-
-footer #links a:nth-child(odd) {
-	grid-area: "icon";
-	text-align: left;
-	color: #fff;
-}
-footer #links a:nth-child(even) {
-	grid-area: "name";
-	text-align: right;
-	padding-right: 20px;
-	color: #fff;
-}
-
-footer #map {
-	grid-area: map;
-}
-footer #map button {
-	text-align: center;
-	padding: 10px 100px;
-	border-radius: 5px;
-	border: none;
-	background-color: #232323;
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-	color: #ffce26;
-	margin: 40px 0 10px 0;
-	font-size: 20px;
-}
-
-footer #map button:hover {
-	background-color: #000;
-}
-
-footer #map img {
-	width: 300px;
+footer img.map {
+	width: 100%;
 }
 
 footer #bottom {
-	display: block;
 	grid-area: bottom;
-	text-align: end;
 }
 
-footer #bottom span {
-	padding: 20px 30px 20px 0;
+footer #bottom span{
+	display: block;
+	text-align: right;
+	padding: 10px 10px 5px 0;
 }
 
-footer #bottom span a {
-	color: #ddd;
+footer #links h2,
+footer #address h2,
+footer #map a {
+	font-size: 50px;
+	text-align: center;
+	padding: 30px;
+	vertical-align: middle;
+	margin: 0;
+}
+
+footer a button,
+footer img{
+	border-radius: 7px;
+	border: none;
+}
+
+footer img.map,
+footer a.map{
+	width: 80%;
+}
+
+footer a.map button {
+	font-size: 30px;
+	text-align: center;
+	padding: 10px 20px;
+	width: 100%;
+}
+
+footer a.map button:hover {
+	color: #fff;
+	background-color: #121212;
+	box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.3);
 }
 
 @media only screen and (max-width: 1280px) {
@@ -640,6 +647,7 @@ footer #bottom span a {
 		font-size: 40px;
 		padding: 40px;
 	}
+
 	header p {
 		margin: 0 auto 10px 40px;
 		padding: 0;
@@ -689,6 +697,7 @@ footer #bottom span a {
 	p {
 		font-size: 20px !important;
 	}
+
 	h2 {
 		font-size: 35px;
 	}
@@ -697,6 +706,7 @@ footer #bottom span a {
 		font-size: 40px;
 		padding: 40px;
 	}
+
 	header p {
 		margin: 0 auto 10px 40px;
 		padding: 0;
@@ -711,20 +721,21 @@ footer #bottom span a {
 	#testimony .container .carousel .slider section p {
 		top: 60%;
 	}
-
-	footer #map button {
-		padding: 10px 40px;
+	
+	
+	
+	footer h2,
+	footer a.map button{
+		font-size: 25px;
 	}
-
-	footer #map img {
-		width: 180px;
-	}
+	
 }
 
 @media only screen and (max-width: 600px) {
 	* {
 		box-sizing: border-box;
 	}
+
 	p {
 		font-size: 20px;
 		text-align: justify;
@@ -733,27 +744,26 @@ footer #bottom span a {
 	h2 {
 		font-size: 35px;
 	}
-	
-	nav ul{
+
+	nav ul {
 		display: none;
 		top: 160px;
 		left: 0;
 		right: 0;
 		background: rgba(0, 0, 0, 0.9);
 	}
+
 	nav ul li {
 		display: block;
 		padding: 10px 0;
 		text-align: center;
 	}
-	
-	
-	nav ul li ul{
+
+	nav ul li ul {
 		z-index: 1;
 	}
-	
-	
-	nav i{
+
+	nav i {
 		visibility: visible;
 		display: block;
 		position: absolute;
@@ -762,34 +772,37 @@ footer #bottom span a {
 		padding: 20px;
 		font-size: 35px;
 	}
-	
 
 	header h1 {
 		font-size: 40px;
 		padding: 40px;
 	}
+
 	header p {
 		margin: 0 auto 10px 40px;
 		padding: 0;
 		width: 80%;
 		font-size: 30px;
 	}
+
 	.container {
 		height: 100%;
 	}
 
 	header .left {
-		left: 150px;
+		left: 100px;
 	}
+
 	#testimony .left {
-		left: 120px;
+		left: 100px;
 	}
 
 	header .right {
-		right: 150px;
+		right: 100px;
 	}
+
 	#testimony .right {
-		right: 120px;
+		right: 100px;
 	}
 
 	#about {
@@ -800,6 +813,7 @@ footer #bottom span a {
 		width: 90%;
 		margin: auto;
 	}
+
 	#about p {
 		width: 100%;
 		padding-bottom: 0;
@@ -815,6 +829,17 @@ footer #bottom span a {
 		width: 100%;
 	}
 
+	#product .imgs div h3 {
+		top: 40%;
+	}
+
+	#product .imgs div p {
+		top: 55%;
+		width: 100%;
+		padding: 10px;
+		font-size: 17px !important;
+	}
+
 	#product .imgs div::before {
 		top: 20%;
 		bottom: 0;
@@ -827,10 +852,12 @@ footer #bottom span a {
 		width: 45%;
 		padding-bottom: 0;
 	}
+
 	#services {
 		grid-template-columns: 1fr;
 		grid-template-areas: "heading";
 	}
+
 	#services div {
 		padding: 5% 10%;
 	}
@@ -854,21 +881,18 @@ footer #bottom span a {
 		width: 90%;
 		font-size: 17px;
 	}
-
-	footer {
-		margin-top: 100px;
+	
+	footer{
 		grid-template-columns: 1fr;
-		grid-template-areas:
-			"address"
-			"links"
-			"map"
-			"bottom";
+		grid-template-areas: "addhead"
+		"addcont"
+		"linkhead"
+		"linkcont"
+		"maphead"
+		"mapcont"
+		"bottom";
 	}
-	footer #map button {
-		padding: 10px 120px;
-	}
-
-	footer #map img {
-		width: 80%;
+	footer a.map{
+		padding: 10px 0;
 	}
 }
